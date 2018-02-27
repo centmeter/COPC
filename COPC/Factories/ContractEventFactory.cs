@@ -1,7 +1,7 @@
 ﻿using System;
-using COPC.Models;
+using COPC.ContractModels;
 using Newtonsoft.Json;
-namespace COPC.Factories
+namespace COPC.ContractFactories
 {
     /// <summary>
     /// 合约事件工厂
@@ -10,7 +10,7 @@ namespace COPC.Factories
     {
         #region Singleton
         private static ContractEventFactory _instance;
-        public static object _locker = new object();
+        private static object _locker = new object();
         public static ContractEventFactory Instance
         {
             get
@@ -57,6 +57,14 @@ namespace COPC.Factories
                 contractEvent.ContractEventData = contractEventData;
             }
             return contractEvent;
+        }
+        /// <summary>
+        /// 序列化合约事件数据
+        /// </summary>
+        public string SerializeContractEventData(IContractEvent contractEvent)
+        {
+            string jsonData = JsonConvert.SerializeObject(contractEvent);
+            return jsonData;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace COPC.Models
+namespace COPC.ContractModels
 {
     /// <summary>
     /// 标准合约事件
@@ -15,10 +15,6 @@ namespace COPC.Models
         /// 描述
         /// </summary>
         public IContractEventData ContractEventData { get; set; }
-        internal StandardContractEvent()
-        {
-
-        }
         /// <summary>
         /// 克隆
         /// </summary>

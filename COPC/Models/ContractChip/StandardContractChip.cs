@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace COPC.Models
+namespace COPC.ContractModels
 {
     /// <summary>
     /// 标准合约筹码
@@ -15,10 +15,6 @@ namespace COPC.Models
         /// 描述
         /// </summary>
         public IContractChipData ContractChipData { get; set; }
-        internal StandardContractChip()
-        {
-
-        }
         /// <summary>
         /// 克隆
         /// </summary>

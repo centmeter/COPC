@@ -1,7 +1,7 @@
-﻿using COPC.Models;
+﻿using COPC.ContractModels;
 using System;
 using Newtonsoft.Json;
-namespace COPC.Factories
+namespace COPC.ContractFactories
 {
     /// <summary>
     /// 合约筹码工厂
@@ -10,7 +10,7 @@ namespace COPC.Factories
     {
         #region Singleton
         private static ContractChipFactory _instance;
-        public static object _locker = new object();
+        private static object _locker = new object();
         public static ContractChipFactory Instance
         {
             get
@@ -57,6 +57,17 @@ namespace COPC.Factories
                 contractChip.ContractChipData = contractChipData;
             }
             return contractChip;
+        }
+        /// <summary>
+        /// 序列化合约筹码数据
+        /// </summary>
+        /// <param name="contractChip"></param>
+        /// <returns></returns>
+        public string SerializeContractChipData(IContractChip contractChip)
+        {
+            string jsonData = JsonConvert.SerializeObject(contractChip);
+            return jsonData;
+
         }
     }
 }

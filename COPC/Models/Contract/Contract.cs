@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace COPC.Models
+namespace COPC.ContractModels
 {
     /// <summary>
     /// 合约
@@ -18,10 +18,6 @@ namespace COPC.Models
         /// 合约数据
         /// </summary>
         public IContractData ContractData { get; set; }
-        internal Contract()
-        {
-
-        }
         /// <summary>
         /// 克隆
         /// </summary>

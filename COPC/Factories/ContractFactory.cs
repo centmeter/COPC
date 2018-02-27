@@ -1,13 +1,13 @@
 ﻿using System;
-using COPC.Models;
+using COPC.ContractModels;
 using Newtonsoft.Json;
-namespace COPC.Factories
+namespace COPC.ContractFactories
 {
     public class ContractFactory
     {
         #region Singleton
         private static ContractFactory _instance;
-        public static object _locker = new object();
+        private static object _locker = new object();
         public static ContractFactory Instance
         {
             get
@@ -54,6 +54,15 @@ namespace COPC.Factories
                 contract.ContractData = contractData;
             }
             return contract;
+        }
+
+        /// <summary>
+        /// 序列化合约数据
+        /// </summary>
+        public string SerializeContractData(IContract contract)
+        {
+            string jsonData = JsonConvert.SerializeObject(contract);
+            return jsonData;
         }
     }
 }

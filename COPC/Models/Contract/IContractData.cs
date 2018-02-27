@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace COPC.Models
+namespace COPC.ContractModels
 {
     /// <summary>
     /// 合约数据接口

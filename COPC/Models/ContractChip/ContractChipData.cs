@@ -1,4 +1,4 @@
-﻿namespace COPC.Models
+﻿namespace COPC.ContractModels
 {
     /// <summary>
     /// 合约筹码数据

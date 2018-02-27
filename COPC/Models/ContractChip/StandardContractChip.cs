@@ -15,22 +15,21 @@ namespace COPC.Models
         /// 描述
         /// </summary>
         public IContractChipData ContractChipData { get; set; }
+        internal StandardContractChip()
+        {
+
+        }
         /// <summary>
         /// 克隆
         /// </summary>
-        public IContractChip Clone(IContractChip contractChip)
+        public IContractChip Clone()
         {
-            IContractChip returnContractChip = null;
-            if (contractChip is StandardContractChip)
+            IContractChip cloneContractChip = new StandardContractChip()
             {
-                returnContractChip = new StandardContractChip()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    ContractChipData = contractChip.ContractChipData
-                };
-
-            }
-            return returnContractChip;
+                Id = Guid.NewGuid().ToString(),
+                ContractChipData = this.ContractChipData.Clone()
+            };
+            return cloneContractChip;
         }
     }
 }

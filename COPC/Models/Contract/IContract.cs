@@ -1,21 +1,22 @@
 ﻿namespace COPC.Models
 {
     /// <summary>
-    /// 合约筹码接口
+    /// 合约接口
     /// </summary>
-    public interface IContractChip
+    public interface IContract
     {
         /// <summary>
         /// 唯一标识Id
         /// </summary>
         string Id { get; set; }
         /// <summary>
-        /// 合约筹码数据
+        /// 合约数据
         /// </summary>
-        IContractChipData ContractChipData { get; set; }
+        IContractData ContractData { get; set; }
         /// <summary>
         /// 克隆
         /// </summary>
-        IContractChip Clone();
+        IContract Clone();
+
     }
 }

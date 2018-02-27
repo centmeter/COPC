@@ -1,5 +1,6 @@
 ﻿using System;
 using COPC.Models;
+using Newtonsoft.Json;
 namespace COPC.Factories
 {
     /// <summary>
@@ -35,11 +36,26 @@ namespace COPC.Factories
         /// <summary>
         /// 创建合约事件
         /// </summary>
-        public IContractEvent CreateContractChip<T>(IContractEventData contractEventData) where T : IContractEvent
+        public IContractEvent CreateContractEvent<T>(IContractEventData contractEventData) where T : IContractEvent
         {
             IContractEvent contractEvent = Activator.CreateInstance<T>();
             contractEvent.Id = Guid.NewGuid().ToString();
             contractEvent.ContractEventData = contractEventData;
+            return contractEvent;
+        }
+        /// <summary>
+        /// 解析合约事件
+        /// </summary>
+        public IContractEvent ParseContractEvent<T1, T2>(string id, string jsonData) where T1 : IContractEvent where T2 : IContractEventData
+        {
+            IContractEventData contractEventData = JsonConvert.DeserializeObject<T2>(jsonData);
+            IContractEvent contractEvent = null;
+            if (contractEventData != null && !string.IsNullOrEmpty(id))
+            {
+                contractEvent = Activator.CreateInstance<T1>();
+                contractEvent.Id = id;
+                contractEvent.ContractEventData = contractEventData;
+            }
             return contractEvent;
         }
     }

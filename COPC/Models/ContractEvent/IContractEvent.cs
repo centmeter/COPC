@@ -10,12 +10,12 @@
         /// </summary>
         string Id { get; set; }
         /// <summary>
-        /// 描述
+        /// 合约事件数据
         /// </summary>
         IContractEventData ContractEventData { get; set; }
         /// <summary>
         /// 克隆
         /// </summary>
-        IContractEvent Clone(IContractEvent contractEvent);
+        IContractEvent Clone();
     }
 }

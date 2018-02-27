@@ -1,5 +1,6 @@
 ﻿using COPC.Models;
 using System;
+using Newtonsoft.Json;
 namespace COPC.Factories
 {
     /// <summary>
@@ -40,6 +41,21 @@ namespace COPC.Factories
             IContractChip contractChip = Activator.CreateInstance<T>();
             contractChip.Id = Guid.NewGuid().ToString();
             contractChip.ContractChipData = contractChipData;
+            return contractChip;
+        }
+        /// <summary>
+        /// 解析合约筹码
+        /// </summary>
+        public IContractChip ParseContractChip<T1,T2>(string id,string jsonData) where T1:IContractChip where T2:IContractChipData
+        {
+            IContractChipData contractChipData = JsonConvert.DeserializeObject<T2>(jsonData);
+            IContractChip contractChip = null;
+            if(contractChipData!=null&&!string.IsNullOrEmpty(id))
+            {
+                contractChip = Activator.CreateInstance<T1>();
+                contractChip.Id = id;
+                contractChip.ContractChipData = contractChipData;
+            }
             return contractChip;
         }
     }

@@ -15,22 +15,21 @@ namespace COPC.Models
         /// 描述
         /// </summary>
         public IContractEventData ContractEventData { get; set; }
+        internal StandardContractEvent()
+        {
+
+        }
         /// <summary>
         /// 克隆
         /// </summary>
-        public IContractEvent Clone(IContractEvent contractEvent)
+        public IContractEvent Clone()
         {
-            IContractEvent returnContractEvent = null;
-            if (contractEvent is StandardContractEvent)
+            IContractEvent cloneContractEvent = new StandardContractEvent()
             {
-                returnContractEvent = new StandardContractEvent()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    ContractEventData = contractEvent.ContractEventData
-                };
-
-            }
-            return returnContractEvent;
+                Id = Guid.NewGuid().ToString(),
+                ContractEventData = this.ContractEventData.Clone()
+            };
+            return cloneContractEvent;
         }
     }
 }

@@ -9,5 +9,9 @@
         /// 描述
         /// </summary>
         string Description { get; set; }
+        /// <summary>
+        /// 克隆
+        /// </summary>
+        IContractEventData Clone();
     }
 }

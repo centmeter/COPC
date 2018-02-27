@@ -9,5 +9,17 @@
         /// 描述
         /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// 克隆
+        /// </summary>
+        public IContractChipData Clone()
+        {
+            IContractChipData cloneContractChipData = new ContractChipData()
+            {
+                Description = this.Description
+            };
+
+            return cloneContractChipData;
+        }
     }
 }

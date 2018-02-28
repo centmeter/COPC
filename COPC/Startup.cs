@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using COPC.ContractModels;
 using Microsoft.EntityFrameworkCore;
+using COPC.EntityFrameworkCore;
 
 namespace COPC
 {
@@ -34,7 +35,7 @@ namespace COPC
             var sqlConnectionString = Configuration.GetConnectionString("Default");
 
             //添加数据上下文
-            services.AddDbContext<TestDBContext>(options => options.UseNpgsql(sqlConnectionString));
+            services.AddDbContext<COPCDbContext>(options => options.UseNpgsql(sqlConnectionString));
 
             //Session服务
             services.AddSession();

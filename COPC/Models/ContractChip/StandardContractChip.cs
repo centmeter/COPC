@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 
 namespace COPC.ContractModels
 {
@@ -16,12 +14,6 @@ namespace COPC.ContractModels
         /// <summary>
         /// 描述
         /// </summary>
-        public string ContractChipJsonData
-        {
-            get { return JsonConvert.SerializeObject(ContractChipData); }
-            set { ContractChipData = JsonConvert.DeserializeObject<IContractChipData>(value); }
-        }
-        [NotMapped]
         public IContractChipData ContractChipData { get; set; }
         /// <summary>
         /// 克隆

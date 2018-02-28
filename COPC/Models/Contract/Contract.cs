@@ -1,5 +1,8 @@
-﻿using System;
+﻿using COPC.ContractFactories;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,6 +20,12 @@ namespace COPC.ContractModels
         /// <summary>
         /// 合约数据
         /// </summary>
+        public string ContractJsonData
+        {
+            get { return JsonConvert.SerializeObject(ContractData); }
+            set { ContractData = JsonConvert.DeserializeObject<IContractData>(value); }
+        }
+        [NotMapped]
         public IContractData ContractData { get; set; }
         /// <summary>
         /// 克隆

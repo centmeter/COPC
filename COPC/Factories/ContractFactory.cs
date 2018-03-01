@@ -61,7 +61,7 @@ namespace COPC.ContractFactories
         /// </summary>
         public string SerializeContractData(IContract contract)
         {
-            string jsonData = JsonConvert.SerializeObject(contract);
+            string jsonData = JsonConvert.SerializeObject(contract.ContractData);
             return jsonData;
         }
     }

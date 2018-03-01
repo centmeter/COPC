@@ -65,7 +65,7 @@ namespace COPC.ContractFactories
         /// <returns></returns>
         public string SerializeContractChipData(IContractChip contractChip)
         {
-            string jsonData = JsonConvert.SerializeObject(contractChip);
+            string jsonData = JsonConvert.SerializeObject(contractChip.ContractChipData);
             return jsonData;
 
         }
